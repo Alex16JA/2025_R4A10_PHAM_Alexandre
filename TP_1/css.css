@@ -1,0 +1,88 @@
+header {
+    display: flex;
+    border-bottom: solid 0.1em;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#TPname {
+    display: flex;
+    text-align: left;
+    margin: 1.5em;
+}
+
+#navButton {
+    display: flex;
+    text-align: right;
+    gap: 0.5em;
+    margin: 1.5em;
+}
+
+.linkNavbar {
+    text-decoration: none;
+    color: black;
+}
+
+.allBlock {
+    display: flex;
+    margin: 1em;
+    padding: 1em;
+    border: red 1em;
+    flex-wrap: wrap;
+}
+
+.block {
+    display: block;
+    border: solid 0.15em;
+    width: 23em;
+    margin: 1em;
+}
+
+.imgRep {
+    display: flex;
+    border-bottom: solid 0.15em;
+    height: 10em;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+
+.legend {
+    text-align: start;
+    text-decoration: none;
+    padding-left: 1.5em;
+    padding-bottom: 1.5em;
+    padding-right: 0.5em;
+}
+
+footer {
+    display: flex;
+    border-top: solid 0.1em;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5em;
+    text-align: center;
+    padding-right: 20em;
+}
+
+.compagny {
+    text-align: start;
+}
+
+.imgLogo {
+    padding: 1em;
+    background-color: grey;
+}
+
+.footLink {
+    display: flex;
+    justify-content: space-between;
+    gap: 20em;
+}
+
+.fastLink {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
