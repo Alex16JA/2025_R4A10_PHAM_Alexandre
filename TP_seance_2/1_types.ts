@@ -14,7 +14,17 @@ Créez le type HttpMethod, qui combine les valeurs suivantes (chaines de caract�
 Retenez ces verbes, ils sont utilisés aussi bien en backend qu'en frontend
 */
 
-// Implémentez ici
+/*
+type HttpMethod = {
+    GET: string;
+    POST: string;
+    PUT: string;
+    PATCH: string;
+    DELETE: string;
+};
+*/
+
+type HttpMethod = 'GET' | 'POST' | 'PUT' | 'PATCH' | 'DELETE';
 
 /*
 2. La Requête 
@@ -35,7 +45,14 @@ Créez le type associé
 A noter: En TS, on note l'inconnu avec le type unknown. Ce type évite d'utiliser any et nécessite un cast ultérieur vers la valeur souhaitée
 */
 
-// Implémentez ici
+interface Request {
+    method: HttpMethod;
+    url: string;
+    params?: string[];
+    query?: string | { [key: string]: string };
+    body?: { [key: string]: unknown };
+    headers: { 'Content-Type': string } & { [key: string]: string };
+}
 
 /* 
 3. Guard
