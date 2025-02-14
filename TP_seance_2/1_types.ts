@@ -45,13 +45,13 @@ Créez le type associé
 A noter: En TS, on note l'inconnu avec le type unknown. Ce type évite d'utiliser any et nécessite un cast ultérieur vers la valeur souhaitée
 */
 
-interface Request {
-    method: HttpMethod;
-    url: string;
-    params?: string[];
-    query?: string | { [key: string]: string };
-    body?: { [key: string]: unknown };
-    headers: { 'Content-Type': string } & { [key: string]: string };
+type Requete = {
+    method : HttpMethod;
+    url : string;
+    params ?: string[];
+    query ?: string | Record<string, string>;
+    body ?: Record<string, unknown>; 
+    headers : {'Content-Type': string} & Record<string, string>; 
 }
 
 /* 
@@ -68,7 +68,9 @@ La fonction canActivate prend un paramètre, de type Request
 Retenez la notion de Guard, elle vous sera utile en Angular également
 */
 
-// Implémentez ici
+type Guard = {
+    canActivate(arg : Requete): boolean | Promise<boolean>;
+}
 
 /*
 4. Interceptor 
@@ -81,7 +83,9 @@ Le type est également très simple, il contient une fonction intercept, qui ne 
 Angular utilise également la notion d'intercepteur, nous la verrons en troisième année
 */
 
-// Implémentez ici
+type Interceptor = {
+    intercept: (request: Requete) => void
+}
 
 /*
 5. Déclarez un type ValidationSchema.
@@ -103,7 +107,10 @@ Le type ValidationSchema est constitué de deux propriétés:
 - required, un tableau de chaines de caractères, facultatif
 */
 
-// Implémentez ici
+type ValidationSchema = {
+    fields : Record<string, Record<string, unknown>>;
+    required ?: string[];
+}
 
 /*
 6. La Route
@@ -120,9 +127,17 @@ Une route est composée des paramètres suivants:
 - responseInterceptors, une liste d'Interceptors, facultative
 
 Vous verrez tout ça plus en détail en cours d'Architecture et en troisième année
-/*
+*/
 
-// Implémentez ici
+type Route = {
+    path: string,
+    method: HttpMethod,
+    handler: string,
+    guards?: Guard[]
+    validationSchema?: ValidationSchema,
+    requestInterceptor?: Interceptor[],
+    responseInterceptors?: Interceptor[]
+}
 
 
 /*
@@ -140,3 +155,9 @@ Notre réponse aura les propriétés suivantes:
 Angular gèrera une bonne partie de la réponse pour vous, il vous donnera directement accès au body, et propose un 
 système de gestion d'erreur.
 */
+
+type Reponse = {
+    statusCode: number,
+    headers: Record<"Content-type", unknown> & Record<string, unknown>,
+    body: Record<string, unknown>,
+}

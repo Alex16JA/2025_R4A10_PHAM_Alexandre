@@ -1,1 +1,5 @@
-<p>top-nav works!</p>
+<nav id="nav">
+    @for (lien of menus; track $index) {
+    <a [href]="lien.href" class="button">{{lien.label}}</a>
+    }
+</nav>
