@@ -1,9 +1,5 @@
 <div class="services-grid">
     @for (service of services; track $index) {
-    <div class="service-card">
-        <img [src]="service.image" [alt]="service.title">
-        <h3>{{ service.title }}</h3>
-        <p>{{ service.description }}</p>
-    </div>
+    <app-service-card [service]="service"></app-service-card>
     }
 </div>
