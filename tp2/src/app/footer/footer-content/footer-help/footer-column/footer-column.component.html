@@ -1,27 +1,8 @@
 <div class="footer-column">
-    <h3>Company</h3>
+    <h3>{{ columnData.title }}</h3>
     <ul>
-        <li><a href="#">About</a></li>
-        <li><a href="#">Testimonials</a></li>
-        <li><a href="#">Find a doctor</a></li>
-        <li><a href="#">Apps</a></li>
-    </ul>
-</div>
-<div class="footer-column">
-    <h3>Region</h3>
-    <ul>
-        <li><a href="#">Indonesia</a></li>
-        <li><a href="#">Singapore</a></li>
-        <li><a href="#">Hongkong</a></li>
-        <li><a href="#">Canada</a></li>
-    </ul>
-</div>
-<div class="footer-column">
-    <h3>Help</h3>
-    <ul>
-        <li><a href="#">Help center</a></li>
-        <li><a href="#">Contact support</a></li>
-        <li><a href="#">Instructions</a></li>
-        <li><a href="#">How it works</a></li>
+        @for (link of columnData.links; track $index) {
+        <li><a [href]="link.href">{{ link.text }}</a></li>
+        }
     </ul>
 </div>

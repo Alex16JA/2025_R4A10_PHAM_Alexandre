@@ -1,3 +1,5 @@
 <div class="footer-links">
-    <app-footer-column></app-footer-column>
+    @for (column of columns; track $index) {
+    <app-footer-column [columnData]="column"></app-footer-column>
+    }
 </div>
