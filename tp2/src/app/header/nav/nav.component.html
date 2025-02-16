@@ -1,7 +1,5 @@
 <nav>
-    <a href="#">Home</a>
-    <a href="#">Find a doctor</a>
-    <a href="#">App</a>
-    <a href="#">Testimonials</a>
-    <a href="#">About us</a>
+    @for (lien of menus; track $index) {
+    <a [href]="lien.href" class="nav-link">{{lien.label}}</a>
+    }
 </nav>
