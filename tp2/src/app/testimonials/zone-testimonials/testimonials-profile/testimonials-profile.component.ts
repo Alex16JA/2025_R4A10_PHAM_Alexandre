@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { ImgTestimonialsComponent } from './img-testimonials/img-testimonials.component';
 import { InfoProfileComponent } from './info-profile/info-profile.component';
 
@@ -10,5 +10,5 @@ import { InfoProfileComponent } from './info-profile/info-profile.component';
   styleUrl: './testimonials-profile.component.sass'
 })
 export class TestimonialsProfileComponent {
-
+  @Input() profile: any;
 }

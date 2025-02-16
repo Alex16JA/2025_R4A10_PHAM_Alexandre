@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-img-testimonials',
@@ -8,5 +8,6 @@ import { Component } from '@angular/core';
   styleUrl: './img-testimonials.component.sass'
 })
 export class ImgTestimonialsComponent {
-
+  @Input() src: string = '';
+  @Input() alt: string = '';
 }

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { ArrowLeftComponent } from './arrow-left/arrow-left.component';
 import { ArrowRightComponent } from './arrow-right/arrow-right.component';
 import { DotsComponent } from './dots/dots.component';
@@ -11,5 +11,6 @@ import { DotsComponent } from './dots/dots.component';
   styleUrl: './arrow-nav.component.sass'
 })
 export class ArrowNavComponent {
-
+  @Output() previous = new EventEmitter<void>();
+  @Output() next = new EventEmitter<void>();
 }

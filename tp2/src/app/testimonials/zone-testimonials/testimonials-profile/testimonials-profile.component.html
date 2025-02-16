@@ -1,4 +1,4 @@
-<div class="testimonial-profile">
-    <app-img-testimonials></app-img-testimonials>
-    <app-info-profile></app-info-profile>
+<div class="profile">
+    <app-img-testimonials [src]="profile.image" [alt]="profile.name"></app-img-testimonials>
+    <h3>{{ profile.name }}</h3>
 </div>

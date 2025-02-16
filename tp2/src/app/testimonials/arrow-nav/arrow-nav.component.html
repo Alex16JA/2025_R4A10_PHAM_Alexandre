@@ -1,5 +1,4 @@
-<div class="navigation-arrows">
-    <app-arrow-left></app-arrow-left>
-    <app-dots></app-dots>
-    <app-arrow-right></app-arrow-right>
+<div class="arrow-nav">
+    <app-arrow-left (click)="previous.emit()"></app-arrow-left>
+    <app-arrow-right (click)="next.emit()"></app-arrow-right>
 </div>
