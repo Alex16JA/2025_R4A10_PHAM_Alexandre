@@ -2,3 +2,40 @@ body
     font-family: Muli, sans-serif
     margin: 0
     padding: 0
+    box-sizing: border-box
+
+@media screen and (width >= 1200px)
+    main, header
+        margin: 0 8em
+
+    app-our-service
+        max-width: 80%
+
+    virtual-healthcare-root
+        display: flex
+        justify-content: space-between
+        align-items: center
+
+@media screen and (width <= 600px)
+    main, header
+        margin: 0 1em
+
+    app-our-service
+        max-width: 100%
+
+    virtual-healthcare-root
+        display: flex
+        justify-content: center
+        align-items: center
+        flex-direction: column
+
+    app-footer
+        display: flex
+        justify-content: center
+        align-items: center
+        height: auto
+        flex-direction: column-reverse
+        padding: 1em 0
+
+    app-header, app-our-service, app-testimonials
+        width: 100%
