@@ -35,7 +35,9 @@ Sa seule propriété est une fonction findMany, qui ne prend pas d'argument et r
 attention on renvoie un tableau de T
 */
 
-// Implémentez ici
+interface FindMany<T>{
+    findMany(): Promise<T[]>
+}
 
 /*
 2. Faire le reste du CRUD 
@@ -67,7 +69,21 @@ Dans la première question, vous avez fait FindMany. Sur le même modèle, faite
 - delete, prend en argument un id, et renvoie une promesse qui ne renvoie rien (pas de générique sur cette interface, on utilisera le type associé)
 */
 
-// Implémentez ici
+interface FindOne<T>{
+    findOne(id: number): Promise<T> 
+}
+
+interface Create<T>{
+    create(item: T): Promise<T>
+}
+
+interface Update<T>{
+    update(id: number, item: T): Promise<T>
+}
+
+interface Delete{
+    delete(id: number): Promise<void>
+}
 
 /*
 3. Créer les types Student et Course
@@ -85,7 +101,19 @@ Un cours est matérialisé par:
 - active, booléen
 */
 
-// Implémentez ici
+type Student = {
+  id: number;
+  firstName: string;
+  lastName: string;
+  group: string;
+};
+
+type Course = {
+  id: number;
+  name: string;
+  enseignant: string;
+  active: boolean;
+};
 
 /*
 4. Créer les interfaces StudentRepository et CourseRepository
@@ -96,7 +124,8 @@ Ces deux interfaces vont étendre les interfaces CRUD que vous avez créées et 
 - CourseRepository étend FindMany, FindOne, Create et Update uniquement. Chaque interface prend Course en paramètre
 */
 
-// Implémentez ici
+interface StudentRepository extends FindMany<Student>, FindOne<Student>, Create<Student>, Update<Student>, Delete {}
+interface CourseRepository extends FindMany<Course>, FindOne<Course>, Create<Course>, Update<Course> {}
 
 /*
 5. Implémentation des classes
@@ -111,7 +140,41 @@ Chaque fonction devra être précédée du mot clé async : https://developer.mo
 Pour les findMany, retournez simplement un tableau vide, pour les autres, vous pouvez retourner null pour chaque méthode
 */
 
-// Implémentez ici
+class SQLStudentRepository implements StudentRepository{
+    async findMany(): Promise<Student[]> {
+        return Promise.resolve([]);
+    }
+    async create(T: any): Promise<Student> {
+        throw new Error();
+    }
+    async findOne(id: any): Promise<Student> {
+        throw new Error();
+    }
+    async update(id: any, T: any): Promise<Student> {
+        throw new Error();
+    }
+    async delete(id: any): Promise<void> {
+        throw new Error();
+    }
+}
+
+class SQLCourseRepository implements CourseRepository{
+    findMany(): Promise<Course[]> {
+        return Promise.resolve([]);
+    }
+
+    findOne(id: any): Promise<Course> {
+        throw new Error();
+    }
+
+    create(T: any): Promise<Course> {
+        throw new Error();
+    }
+
+    update(id: any, T: any): Promise<Course> {
+        throw new Error();
+    }
+}
 
 /**
  * Ca y est, vous êtes des génies (en devenir) du design logiciel en POO (le web aujourd'hui c'est beaucoup de software design, va falloir se préparer)
