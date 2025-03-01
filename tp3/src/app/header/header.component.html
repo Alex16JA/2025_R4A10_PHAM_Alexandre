@@ -1,7 +1,8 @@
 <header class="header">
     <div class="logo">Agence de Voyages</div>
     <nav class="nav">
-      <a routerLink="/home" class="nav-link">Liste des voyages</a>
-      <a routerLink="/generate" class="nav-link">Générer un voyage</a>
+      @for (lien of menus; track $index) {
+        <a class="nav-link" [routerLink] = lien.path routerLinkActive="active">{{lien.label}}</a>
+        }
     </nav>
   </header>
