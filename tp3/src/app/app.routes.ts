@@ -12,9 +12,9 @@ export const routes: Routes = [
         component: GenererVoyageComponent, path: 'generer'
     },
     {
-        component: DetailVoyageComponent, path: 'detail'
+        component: DetailVoyageComponent, path: 'detail/:id'
     },
     {
-        component: NotFoundComponent, path: 'erreur404'
+        component: NotFoundComponent, path: '**'
     }
 ];
