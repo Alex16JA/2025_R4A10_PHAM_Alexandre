@@ -1,0 +1,35 @@
+.not-found-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    text-align: center;
+    background-color: #f8f9fa;
+
+    h1 {
+        font-size: 3rem;
+        color: #dc3545;
+        /* Couleur rouge pour indiquer une erreur */
+        margin-bottom: 1rem;
+    }
+
+    p {
+        font-size: 1.2rem;
+        color: #6c757d;
+        margin-bottom: 2rem;
+    }
+
+    a {
+        font-size: 1rem;
+        color: #fff;
+        background-color: #007bff;
+        padding: 10px 20px;
+        border-radius: 5px;
+        text-decoration: none;
+
+        &:hover {
+            background-color: #0056b3;
+        }
+    }
+}

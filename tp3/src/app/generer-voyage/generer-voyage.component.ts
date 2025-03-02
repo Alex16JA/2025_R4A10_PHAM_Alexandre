@@ -1,12 +1,36 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { VoyageService } from '../service/voyage.service';
+import { Voyage } from '../models/voyage.model';
+import { DESTINATIONS, DESCRIPTIONS, PRIX } from '../data/data';
 
 @Component({
   selector: 'app-generer-voyage',
-  standalone: true,
-  imports: [],
   templateUrl: './generer-voyage.component.html',
-  styleUrl: './generer-voyage.component.scss'
+  styleUrls: ['./generer-voyage.component.scss']
 })
 export class GenererVoyageComponent {
+  generatedVoyage: Voyage | null = null;
 
+  constructor(private voyageService: VoyageService, private router: Router) {}
+
+  generateVoyage(): void {
+    const randomDestination = DESTINATIONS[Math.floor(Math.random() * DESTINATIONS.length)];
+    const randomDescription = DESCRIPTIONS[Math.floor(Math.random() * DESCRIPTIONS.length)];
+    const randomPrix = PRIX[Math.floor(Math.random() * PRIX.length)];
+
+    this.generatedVoyage = {
+      id: this.voyageService.generateId(),
+      destination: randomDestination,
+      description: randomDescription,
+      prix: randomPrix
+    };
+  }
+
+  confirmVoyage(): void {
+    if (this.generatedVoyage) {
+      this.voyageService.addVoyage(this.generatedVoyage);
+      this.router.navigate(['/detail', this.generatedVoyage.id]);
+    }
+  }
 }
