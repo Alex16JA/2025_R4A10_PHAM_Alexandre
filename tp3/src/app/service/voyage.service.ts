@@ -9,36 +9,6 @@ export class VoyageService {
 
   constructor() {
     this.loadVoyagesFromLocalStorage();
-  
-    if (this.voyages.length === 0) {
-      this.voyages = [
-        {
-          id: this.generateId(),
-          destination: 'Paris',
-          description: 'La ville des lumières et de la romance.',
-          prix: 1200
-        },
-        {
-          id: this.generateId(),
-          destination: 'Tokyo',
-          description: 'Découvrez la culture japonaise moderne et traditionnelle.',
-          prix: 2500
-        },
-        {
-          id: this.generateId(),
-          destination: 'New York',
-          description: 'La ville qui ne dort jamais.',
-          prix: 1800
-        },
-        {
-          id: this.generateId(),
-          destination: 'test1',
-          description: 'Test 1',
-          prix: 1800
-        }
-      ];
-      this.saveVoyagesToLocalStorage();
-    }
   }
 
   getVoyages(): Voyage[] {
