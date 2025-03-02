@@ -6,7 +6,9 @@
           <h5 class="card-title">{{ voyage?.destination }}</h5>
           <p class="card-text">{{ voyage?.description }}</p>
           <p class="card-text">{{ voyage?.prix | currency:'EUR' }}</p>
-          <button (click)="deleteVoyage(voyage?.id)" class="btn btn-danger">Supprimer ce voyage</button>
+          <button (click)="deleteVoyage(voyage?.id)" class="btn btn-danger">
+            Supprimer ce voyage
+          </button>
         </div>
       </div>
     </div>

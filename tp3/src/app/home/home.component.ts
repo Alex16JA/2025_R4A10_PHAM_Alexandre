@@ -12,18 +12,16 @@ import { CurrencyPipe, SlicePipe } from '@angular/common';
   styleUrl: './home.component.scss'
 })
 export class HomeComponent {
-  voyages: Voyage[] = []; 
+  voyages: Voyage[] = [];
 
-  constructor(private voyageService: VoyageService) {}
-
-  ngOnInit(): void {
-    this.voyages = this.voyageService.getVoyages(); 
+  constructor(private voyageService: VoyageService) {
+    this.voyages = this.voyageService.getVoyages();
   }
 
   deleteVoyage(id: string): void {
     if (confirm('Êtes-vous sûr de vouloir supprimer ce voyage ?')) {
       this.voyageService.deleteVoyage(id);
-      this.voyages = this.voyageService.getVoyages(); 
+      this.voyages = this.voyageService.getVoyages();
     }
   }
 }

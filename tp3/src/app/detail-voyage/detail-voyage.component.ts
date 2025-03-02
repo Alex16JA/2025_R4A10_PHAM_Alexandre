@@ -1,23 +1,23 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { VoyageService } from '../service/voyage.service';
 import { Voyage } from '../models/voyage.model';
-import { CurrencyPipe } from '@angular/common'; 
-import { RouterLink, RouterLinkActive } from '@angular/router'; 
+import { CurrencyPipe } from '@angular/common';
 
 @Component({
   selector: 'app-detail-voyage',
   standalone: true,
-  imports: [CurrencyPipe, RouterLink, RouterLinkActive],
+  imports: [CurrencyPipe],
   templateUrl: './detail-voyage.component.html',
-  styleUrls: ['./detail-voyage.component.scss']
+  styleUrls: ['./detail-voyage.component.scss'],
 })
 export class DetailVoyageComponent implements OnInit {
   voyage: Voyage | undefined;
 
   constructor(
     private route: ActivatedRoute,
-    private voyageService: VoyageService
+    private voyageService: VoyageService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -30,7 +30,7 @@ export class DetailVoyageComponent implements OnInit {
   deleteVoyage(id: string | undefined): void {
     if (id && confirm('Êtes-vous sûr de vouloir supprimer ce voyage ?')) {
       this.voyageService.deleteVoyage(id);
-      window.location.href = '/home';
+      this.router.navigate(['/home']);
     }
   }
 }
