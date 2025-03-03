@@ -1,0 +1,16 @@
+.btn-accueil {
+    display: inline-block;
+    background-color: #3498db;
+    color: #ffffff;
+    padding: 12px 24px;
+    border-radius: 8px;
+    border: none;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+        background-color: #2980b9;
+    }
+}

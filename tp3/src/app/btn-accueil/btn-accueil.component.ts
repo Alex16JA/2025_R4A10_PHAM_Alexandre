@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-btn-accueil',
@@ -8,5 +9,9 @@ import { Component } from '@angular/core';
   styleUrl: './btn-accueil.component.scss'
 })
 export class BtnAccueilComponent {
+  constructor(private router: Router) { }
 
+  navigateToHome() {
+    this.router.navigate(['/home']);
+  }
 }
