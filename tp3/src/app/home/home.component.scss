@@ -1,0 +1,77 @@
+.home-container {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.card {
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+}
+
+.card-body {
+    padding: 20px;
+}
+
+.card-title {
+    font-size: 22px;
+    color: #2c3e50;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.card-text {
+    font-size: 16px;
+    color: #34495e;
+    margin-bottom: 15px;
+    line-height: 1.5;
+}
+
+.card-text:last-of-type {
+    font-size: 18px;
+    color: #27ae60;
+    font-weight: 600;
+}
+
+.card a {
+    display: inline-block;
+    color: #3498db;
+    text-decoration: none;
+    font-size: 14px;
+    margin-right: 10px;
+    transition: color 0.3s ease;
+}
+
+.card a:hover {
+    color: #2980b9;
+}
+
+.card button {
+    background-color: #e74c3c;
+    color: #ffffff;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+}
+
+.card button:hover {
+    background-color: #c0392b;
+}

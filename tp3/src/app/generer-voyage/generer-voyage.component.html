@@ -1,14 +1,12 @@
-<div class="container">
+<div class="generer-container">
   <h2>Générer un voyage</h2>
-
   <button (click)="generateVoyage()">Générer un voyage</button>
 
   @if (genererVoyage) {
   <div class="generated-voyage">
     <h3>{{ genererVoyage.destination }}</h3>
     <p>{{ genererVoyage.description }}</p>
-    <p>Prix: {{ genererVoyage.prix }} €</p>
-
+    <p class="price">Prix: {{ genererVoyage.prix }} €</p>
     <button (click)="confirmVoyage()">Valider ce voyage</button>
   </div>
   }

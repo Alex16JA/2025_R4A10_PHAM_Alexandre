@@ -1,0 +1,46 @@
+.detail-container {
+    padding: 30px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    margin: 40px auto;
+    text-align: left;
+}
+
+.detail-container h5 {
+    font-size: 28px;
+    color: #2c3e50;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.detail-container p {
+    font-size: 18px;
+    color: #34495e;
+    margin-bottom: 15px;
+    line-height: 1.6;
+}
+
+.detail-container .price {
+    font-size: 24px;
+    color: #27ae60;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.detail-container button {
+    background-color: #e74c3c;
+    color: #ffffff;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+}
+
+.detail-container button:hover {
+    background-color: #c0392b;
+}
