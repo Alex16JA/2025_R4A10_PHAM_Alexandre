@@ -1,7 +1,6 @@
-import { Component } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Router } from '@angular/router';
 import { VoyageService } from '../service/voyage.service';
-import { Voyage } from '../models/voyage.model';
 
 @Component({
   selector: 'app-btn-supprimer',
@@ -11,23 +10,19 @@ import { Voyage } from '../models/voyage.model';
   styleUrl: './btn-supprimer.component.scss'
 })
 export class BtnSupprimerComponent {
-  voyage: Voyage | undefined;
-  
-    constructor(
-      private route: ActivatedRoute,
-      private voyageService: VoyageService,
-      private router: Router
-    ) {
-      const id = this.route.snapshot.paramMap.get('id');
-      if (id) {
-        this.voyage = this.voyageService.getVoyageById(id);
-      }
+  @Input() voyageId: string | undefined;
+  @Output() voyageSupprime = new EventEmitter<void>(); 
+
+  constructor(
+    private voyageService: VoyageService,
+    private router: Router
+  ) {}
+
+  deleteVoyage(): void {
+    if (this.voyageId && confirm('Êtes-vous sûr de vouloir supprimer ce voyage ?')) {
+      this.voyageService.deleteVoyage(this.voyageId); 
+      this.voyageSupprime.emit();
+      this.router.navigate(['/home']); 
     }
-  
-    deleteVoyage(id: string | undefined): void {
-      if (id && confirm('Êtes-vous sûr de vouloir supprimer ce voyage ?')) {
-        this.voyageService.deleteVoyage(id);
-        this.router.navigate(['/home']);
-      }
-    }
+  }
 }

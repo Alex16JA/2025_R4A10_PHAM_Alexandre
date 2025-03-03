@@ -3,11 +3,12 @@ import { VoyageService } from '../service/voyage.service';
 import { Voyage } from '../models/voyage.model';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { SlicePipe } from '@angular/common';
+import { BtnSupprimerComponent } from '../btn-supprimer/btn-supprimer.component';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [RouterLink, RouterLinkActive, SlicePipe],
+  imports: [RouterLink, RouterLinkActive, SlicePipe, BtnSupprimerComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
@@ -16,9 +17,13 @@ export class HomeComponent {
   currentPage: number = 1;
   itemsPerPage: number = 20;
   totalItems: number = 0;
-  Math = Math; 
+  Math = Math;
 
   constructor(private voyageService: VoyageService) {
+    this.actualiserVoyages();
+  }
+
+  actualiserVoyages(): void {
     this.voyages = this.voyageService.getVoyages();
     this.totalItems = this.voyages.length;
   }
@@ -31,13 +36,5 @@ export class HomeComponent {
 
   changePage(page: number): void {
     this.currentPage = page;
-  }
-
-  deleteVoyage(id: string): void {
-    if (confirm('Êtes-vous sûr de vouloir supprimer ce voyage ?')) {
-      this.voyageService.deleteVoyage(id);
-      this.voyages = this.voyageService.getVoyages();
-      this.totalItems = this.voyages.length;
-    }
   }
 }

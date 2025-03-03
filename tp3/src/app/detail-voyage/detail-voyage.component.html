@@ -2,5 +2,5 @@
     <h5>{{ voyage?.destination }}</h5>
     <p>{{ voyage?.description }}</p>
     <p class="price">{{ voyage?.prix }} €</p>
-    <app-btn-supprimer></app-btn-supprimer>
+    <app-btn-supprimer [voyageId]="voyage?.id"></app-btn-supprimer>
 </div>

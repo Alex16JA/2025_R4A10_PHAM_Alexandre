@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { VoyageService } from '../service/voyage.service';
 import { Voyage } from '../models/voyage.model';
 import { BtnSupprimerComponent } from '../btn-supprimer/btn-supprimer.component';
