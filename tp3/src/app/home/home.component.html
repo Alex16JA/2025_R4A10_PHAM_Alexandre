@@ -1,15 +1,22 @@
 <div class="home-container">
-  <div class="card-grid">
-      @for (voyage of voyages; track voyage.id) {
-      <div class="card">
-          <div class="card-body">
-              <h5 class="card-title">{{ voyage.destination }}</h5>
-              <p class="card-text">{{ voyage.description | slice:0:20 }}...</p>
-              <p class="card-text">{{ voyage.prix }} €</p>
-              <a [routerLink]="['/detail', voyage.id]">Voir les détails</a>
-              <button (click)="deleteVoyage(voyage.id)">Supprimer</button>
-          </div>
-      </div>
-      }
-  </div>
+    <div class="card-grid">
+        @for (voyage of pagination; track voyage.id) {
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">{{ voyage.destination }}</h5>
+                <p class="card-text">{{ voyage.description | slice:0:20 }}...</p>
+                <p class="card-text">{{ voyage.prix }} €</p>
+                <a [routerLink]="['/detail', voyage.id]">Voir les détails</a>
+                <button (click)="deleteVoyage(voyage.id)">Supprimer</button>
+            </div>
+        </div>
+        }
+    </div>
+
+    <div class="pagination">
+        <button (click)="changePage(currentPage - 1)" [disabled]="currentPage === 1">Précédent</button>
+        <span>Page {{ currentPage }} sur {{ Math.ceil(totalItems / itemsPerPage) }}</span>
+        <button (click)="changePage(currentPage + 1)"
+            [disabled]="currentPage === Math.ceil(totalItems / itemsPerPage)">Suivant</button>
+    </div>
 </div>
