@@ -10,16 +10,16 @@ import { DESTINATIONS, DESCRIPTIONS, PRIX } from '../data/data';
   styleUrls: ['./generer-voyage.component.scss']
 })
 export class GenererVoyageComponent {
-  generatedVoyage: Voyage | null = null;
+  genererVoyage: Voyage | null = null;
 
-  constructor(private voyageService: VoyageService, private router: Router) {}
+  constructor(private voyageService: VoyageService, private router: Router) { }
 
   generateVoyage(): void {
     const randomDestination = DESTINATIONS[Math.floor(Math.random() * DESTINATIONS.length)];
     const randomDescription = DESCRIPTIONS[Math.floor(Math.random() * DESCRIPTIONS.length)];
     const randomPrix = PRIX[Math.floor(Math.random() * PRIX.length)];
 
-    this.generatedVoyage = {
+    this.genererVoyage = {
       id: this.voyageService.generateId(),
       destination: randomDestination,
       description: randomDescription,
@@ -28,9 +28,9 @@ export class GenererVoyageComponent {
   }
 
   confirmVoyage(): void {
-    if (this.generatedVoyage) {
-      this.voyageService.addVoyage(this.generatedVoyage);
-      this.router.navigate(['/detail', this.generatedVoyage.id]);
+    if (this.genererVoyage) {
+      this.voyageService.addVoyage(this.genererVoyage);
+      this.router.navigate(['/detail', this.genererVoyage.id]);
     }
   }
 }

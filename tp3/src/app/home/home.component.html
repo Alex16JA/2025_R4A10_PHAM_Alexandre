@@ -1,21 +1,17 @@
-<div class="container mt-4">
-    <div class="row">
-      @for (voyage of voyages; track voyage.id) {
-        <div class="col-md-4 mb-4">
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title">{{ voyage.destination }}</h5>
-              <p class="card-text">{{ voyage.description | slice:0:20 }}...</p>
-              <p class="card-text">{{ voyage.prix | currency:'EUR' }}</p>
-              <a [routerLink]="['/detail', voyage.id]" class="btn btn-primary">
-                Voir les détails
-              </a>
-              <button (click)="deleteVoyage(voyage.id)" class="btn btn-danger mt-2">
-                Supprimer
-              </button>
-            </div>
-          </div>
-        </div>
-      }
+@for (voyage of voyages; track voyage.id) {
+<div class="col-md-4 mb-4">
+  <div class="card">
+    <div class="card-body">
+      <h5 class="card-title">{{ voyage.destination }}</h5>
+      <p class="card-text">{{ voyage.description | slice:0:20 }}...</p>
+      <p class="card-text">{{ voyage.prix }} €</p>
+      <a [routerLink]="['/detail', voyage.id]">
+        Voir les détails
+      </a>
+      <button (click)="deleteVoyage(voyage.id)">
+        Supprimer
+      </button>
     </div>
   </div>
+</div>
+}

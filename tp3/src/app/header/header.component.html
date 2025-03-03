@@ -1,8 +1,8 @@
 <header class="header">
-    <div class="logo">Agence de Voyages</div>
-    <nav class="nav">
-      @for (lien of menus; track $index) {
-        <a class="nav-link" [routerLink] = lien.path routerLinkActive="active">{{lien.label}}</a>
-        }
-    </nav>
-  </header>
+  <div class="logo">LeagueOfTravel</div>
+  <nav class="nav">
+    @for (lien of menus; track $index) {
+    <a class="nav-link" [routerLink]=lien.path routerLinkActive="active">{{lien.label}}</a>
+    }
+  </nav>
+</header>
