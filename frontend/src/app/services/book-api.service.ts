@@ -4,34 +4,36 @@ import { catchError, Observable } from 'rxjs';
 import { map, tap } from 'rxjs';
 import { Book } from '../models/book';
 
-@Injectable({
-  providedIn: 'root',
-})
+@Injectable({ providedIn: 'root' })
 export class BooksApiService {
-  private apiUrl = 'http://localhost:5000';
-
-  constructor(private http: HttpClient) { }
+  private readonly API_URL = 'http://localhost:5000';
+  constructor(private readonly http: HttpClient) {}
 
   getAllBooks(): Observable<Book[]> {
-    return this.http.get<Book[]>(`${this.apiUrl}/books`);
+    return this.http.get<Book[]>(this.API_URL + '/books');
   }
 
   getBookById(id: number): Observable<Book> {
-    return this.http.get<Book>(`${this.apiUrl}/books/${id}`).pipe(catchError((err) => {
-      throw new Error('Une erreur est survenue:', err)
-    }));
+    return this.http.get<Book>(this.API_URL + `/books/${id}`).pipe(catchError((err) => {
+        throw new Error('Une erreur est survenue:', err);
+      })
+    );
   }
 
-  create(book: Book): Observable<{ id: number }> {
+  createBook(book: Book):Observable<Book> {
     return this.http
-      .post<{ ressource_location: number }>(this.apiUrl + '/books', book)
-      .pipe(
-        map((data) => ({ id: data.ressource_location })),
-        tap((data) => console.log('data:', data))
-      );
+    .post<{ ressource_location: number }>(this.API_URL + '/books', book)
+    .pipe(
+      map((data) => ({ id: data.ressource_location,
+        title: book.title,
+        author: book.author,
+        description: book.description,
+        coverUrl: book.coverUrl })),
+      tap((data) => console.log('data:', data))
+    );
   }
 
-  deleteBook(id: number): Observable<void> {
-    return this.http.delete<void>(`${this.apiUrl}/books/${id}`);
+  deleteBook(id: number): Observable<Book> {
+    return this.http.delete<Book>(`${this.API_URL}/${id}`);
   }
 }
