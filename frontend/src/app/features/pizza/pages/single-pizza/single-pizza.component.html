@@ -2,7 +2,9 @@
   <h1 class="pizza-title">
     {{ pizza.name }}
     <span class="pizza-rating">
-      <span *ngFor="let star of stars">&#9733;</span>
+      @for (star of stars; track $index) {
+      <span>{{ star }}</span>
+      }
     </span>
   </h1>
 
@@ -13,13 +15,13 @@
   <p class="pizza-description">{{ pizza.description }}</p>
 
   <div class="pizza-ingredients">
-    <span *ngFor="let ingredient of pizza.ingredients" class="ingredient-badge">
-      {{ ingredient }}
-    </span>
+    @for (ingredient of pizza.ingredients; track $index) {
+    <span class="ingredient-badge">{{ ingredient }}</span>
+    }
   </div>
 
   <div class="pizza-footer">
     <p class="pizza-price">{{ pizza.price | currency: 'EUR' }}</p>
-    <button class="order-button">Commander maintenant</button>
+    <button class="order-button" [routerLink]="'/commande'">Commander maintenant</button>
   </div>
 </div>

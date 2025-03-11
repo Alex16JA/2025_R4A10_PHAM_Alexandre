@@ -7,7 +7,12 @@ import { OrderListPageComponent } from "./features/orders/pages/order-list-page/
 
 export const routes: Routes = [
   {
-    path: "",
+    path: "", // Default route
+    redirectTo: "pizzas", // Redirects to /pizzas
+    pathMatch: "full", // Ensures exact match for empty path
+  },
+  {
+    path: "pizzas",
     component: PizzaListPageComponent,
   },
   {
@@ -15,11 +20,11 @@ export const routes: Routes = [
     component: SinglePizzaComponent,
   },
   {
-    path: "/commander",
+    path: "commande",
     component: OrderPizzaPageComponent,
   },
   {
-    path: "/commandes",
+    path: "commandes",
     component: OrderListPageComponent,
   },
   {
