@@ -13,7 +13,7 @@ import { OrderCardComponent } from '../../components/order-card/order-card.compo
 export class OrderListPageComponent implements OnInit {
   orders: Order[] = [];
 
-  constructor(private readonly orderService: OrderLocalService) {}
+  constructor(private readonly orderService: OrderLocalService) { }
 
   ngOnInit(): void {
     this.orderService.findMany().subscribe((orders) => {
@@ -22,6 +22,8 @@ export class OrderListPageComponent implements OnInit {
   }
 
   onDelete(id: string) {
-    this.orderService.remove(id);
+    this.orderService.remove(id).subscribe(() => {
+      this.orders = this.orders.filter((order) => order.id !== id);
+    });
   }
 }

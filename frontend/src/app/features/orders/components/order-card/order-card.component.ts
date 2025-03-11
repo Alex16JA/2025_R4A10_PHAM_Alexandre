@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-order-card',
@@ -9,7 +9,9 @@ import { Component, Input } from '@angular/core';
 })
 export class OrderCardComponent {
   @Input() order: any;
+  @Output() orderDeleted = new EventEmitter<string>();
+
   removeOrder() {
-    
+    this.orderDeleted.emit(this.order.id);
   }
 }
