@@ -7,9 +7,9 @@ import { OrderListPageComponent } from "./features/orders/pages/order-list-page/
 
 export const routes: Routes = [
   {
-    path: "", // Default route
-    redirectTo: "pizzas", // Redirects to /pizzas
-    pathMatch: "full", // Ensures exact match for empty path
+    path: "", 
+    redirectTo: "pizzas",
+    pathMatch: "full",
   },
   {
     path: "pizzas",

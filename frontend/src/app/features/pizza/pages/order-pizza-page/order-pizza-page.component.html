@@ -2,7 +2,6 @@
     <h1 class="order-title">Commander une pizza</h1>
 
     <form [formGroup]="orderForm" (ngSubmit)="onSubmit()" class="order-form">
-        <!-- Pizza Selection -->
         <div class="form-group">
             <label for="pizza">Pizza</label>
             <select id="pizza" formControlName="pizza" class="form-control">
@@ -16,7 +15,6 @@
             }
         </div>
 
-        <!-- Size Selection -->
         <div class="form-group">
             <label for="size">Taille</label>
             <select id="size" formControlName="size" class="form-control">
@@ -30,7 +28,6 @@
             }
         </div>
 
-        <!-- Payment Method -->
         <div class="form-group">
             <label for="paymentMethod">Moyen de paiement</label>
             <select id="paymentMethod" formControlName="paymentMethod" class="form-control">
@@ -44,7 +41,6 @@
             }
         </div>
 
-        <!-- Email -->
         <div class="form-group">
             <label for="email">Adresse email</label>
             <input id="email" type="email" formControlName="email" class="form-control"
@@ -58,7 +54,6 @@
             }
         </div>
 
-        <!-- Submit Button -->
         <button type="submit" class="submit-button" [disabled]="orderForm.invalid">
             Valider la commande
         </button>
