@@ -27,8 +27,8 @@ export class OrderLocalService implements OrderService {
     return of(newOrder);
   }
 
-  remove(id: string): Observable<void> {  // Add return type and Observable
+  remove(id: string): Observable<void> {
     this.$orders.next(this.$orders.getValue().filter((o) => o.id !== id));
-    return of();  // Return an Observable that emits nothing and completes
+    return of(); 
   }
 }
