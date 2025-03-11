@@ -1,0 +1,73 @@
+.order-pizza-page {
+    background-color: #121212;
+    color: white;
+    padding: 40px 20px;
+    min-height: 100vh;
+    text-align: center;
+}
+
+.order-title {
+    color: #ff7f11;
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.order-form {
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.form-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+label {
+    display: block;
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+.form-control {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #ff7f11;
+    background: #222;
+    color: white;
+}
+
+.form-control:focus {
+    outline: none;
+    border-color: #e66a00;
+    box-shadow: 0 0 5px rgba(255, 127, 17, 0.5);
+}
+
+.error {
+    color: #ff3b30;
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+.submit-button {
+    background-color: #ff7f11;
+    border: none;
+    padding: 12px 20px;
+    font-size: 18px;
+    color: white;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.submit-button:disabled {
+    background-color: #666;
+    cursor: not-allowed;
+}
+
+.submit-button:not(:disabled):hover {
+    background-color: #e66a00;
+    transform: scale(1.05);
+}

@@ -73,7 +73,7 @@ Le formulaire de commande est un désastre. Impossible de commander une pizza ! 
 
 Tous ces champs sont obligatoires. Une fois le formulaire soumis, il doit appeler le **OrderService** pour enregistrer la commande.
 
-_(Choix libre entre template-driven et reactive forms)_
+_(Choix libre entre template-driven et reactive forms)_ 
 
 ---
 

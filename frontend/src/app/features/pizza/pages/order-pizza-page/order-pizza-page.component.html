@@ -1,1 +1,66 @@
-<p>DOMINO'S VAINCRA</p>
+<div class="order-pizza-page">
+    <h1 class="order-title">Commander une pizza</h1>
+
+    <form [formGroup]="orderForm" (ngSubmit)="onSubmit()" class="order-form">
+        <!-- Pizza Selection -->
+        <div class="form-group">
+            <label for="pizza">Pizza</label>
+            <select id="pizza" formControlName="pizza" class="form-control">
+                <option value="" disabled>Choisissez une pizza</option>
+                @for (pizza of pizzas; track pizza.name) {
+                <option [value]="pizza.name">{{ pizza.name }}</option>
+                }
+            </select>
+            @if (orderForm.get('pizza')?.touched && orderForm.get('pizza')?.hasError('required')) {
+            <p class="error">Veuillez sélectionner une pizza.</p>
+            }
+        </div>
+
+        <!-- Size Selection -->
+        <div class="form-group">
+            <label for="size">Taille</label>
+            <select id="size" formControlName="size" class="form-control">
+                <option value="" disabled>Choisissez une taille</option>
+                @for (size of sizes; track size) {
+                <option [value]="size">{{ size }}</option>
+                }
+            </select>
+            @if (orderForm.get('size')?.touched && orderForm.get('size')?.hasError('required')) {
+            <p class="error">Veuillez sélectionner une taille.</p>
+            }
+        </div>
+
+        <!-- Payment Method -->
+        <div class="form-group">
+            <label for="paymentMethod">Moyen de paiement</label>
+            <select id="paymentMethod" formControlName="paymentMethod" class="form-control">
+                <option value="" disabled>Choisissez un moyen de paiement</option>
+                @for (method of paymentMethods; track method) {
+                <option [value]="method">{{ method }}</option>
+                }
+            </select>
+            @if (orderForm.get('paymentMethod')?.touched && orderForm.get('paymentMethod')?.hasError('required')) {
+            <p class="error">Veuillez sélectionner un moyen de paiement.</p>
+            }
+        </div>
+
+        <!-- Email -->
+        <div class="form-group">
+            <label for="email">Adresse email</label>
+            <input id="email" type="email" formControlName="email" class="form-control"
+                placeholder="exemple@domaine.com" />
+            @if (orderForm.get('email')?.touched) {
+            @if (orderForm.get('email')?.hasError('required')) {
+            <p class="error">L'email est requis.</p>
+            } @else if (orderForm.get('email')?.hasError('email')) {
+            <p class="error">Veuillez entrer un email valide.</p>
+            }
+            }
+        </div>
+
+        <!-- Submit Button -->
+        <button type="submit" class="submit-button" [disabled]="orderForm.invalid">
+            Valider la commande
+        </button>
+    </form>
+</div>
